@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular'
+
+import { DetailPage } from '../../pages/detail/detail'
+
 
 /**
  * Generated class for the StatusComponent component.
@@ -14,13 +18,13 @@ export class StatusComponent {
 
   results: any[];
 
-  constructor() {
+  constructor(public navCtrl: NavController) {
     console.log('Hello StatusComponent Component');
     this.results = ['Hello', 'World'];
   }
 
   handleClick(event, statusItem){
-      alert(statusItem)
+      this.navCtrl.push(DetailPage, {statusItem: statusItem})
   }
 
 }
