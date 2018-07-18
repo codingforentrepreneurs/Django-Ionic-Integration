@@ -1,6 +1,6 @@
 <!-- Generated template for the StatusComponent component -->
 <ion-list>
-  <button ion-item *ngFor='let status of results'>
+  <button ion-item *ngFor='let status of results' (click)='handleClick($event, status)'>
      <ion-icon name="leaf" item-start></ion-icon> {{ status }}
   </button>  
 </ion-list>

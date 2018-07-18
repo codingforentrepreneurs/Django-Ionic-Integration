@@ -19,4 +19,8 @@ export class StatusComponent {
     this.results = ['Hello', 'World'];
   }
 
+  handleClick(event, statusItem){
+      alert(statusItem)
+  }
+
 }
