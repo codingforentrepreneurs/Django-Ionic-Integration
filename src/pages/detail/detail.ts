@@ -14,8 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    statusItem: any;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {   
+      console.log(navParams)
+      this.statusItem = navParams.get("statusItem")
   }
 
   ionViewDidLoad() {

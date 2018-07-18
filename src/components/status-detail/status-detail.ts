@@ -16,7 +16,7 @@ export class StatusDetailComponent {
 
   constructor() {
     console.log('Hello StatusDetailComponent Component');
-    this.text = 'Hello World';
+    this.text = 'Status Detail Item';
   }
 
 }
