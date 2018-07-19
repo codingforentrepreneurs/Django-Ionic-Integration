@@ -23,7 +23,9 @@ export class DetailPage {
       console.log(navParams)
       this.statusItem = navParams.get("statusItem")
       this.newObject = {
-            title:navParams.get("statusItem"), id: 12
+            title:navParams.get("statusItem"), 
+            id: 12,
+            thisIsAwesome: false,
       }
   }
 
