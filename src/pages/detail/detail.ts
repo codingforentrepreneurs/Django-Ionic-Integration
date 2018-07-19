@@ -33,4 +33,9 @@ export class DetailPage {
     console.log('ionViewDidLoad DetailPage');
   }
 
+  handleStatusDidChange(newStatusItem){
+    alert("Hello")
+    console.log(newStatusItem)
+  }
+
 }

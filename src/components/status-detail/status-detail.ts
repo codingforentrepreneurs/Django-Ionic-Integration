@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import { StatusModel } from '../status/status.model'
 /**
@@ -13,6 +13,7 @@ import { StatusModel } from '../status/status.model'
 })
 export class StatusDetailComponent {
   @Input() myObject: StatusModel;
+  @Output() statusDidChange = new EventEmitter<StatusModel>()
   // text: string;
 
   constructor() {
@@ -21,7 +22,11 @@ export class StatusDetailComponent {
   }
 
   handleClick(event){
-      alert("Hello there")
+      // alert("Hello there")
+      if (this.myObject){
+          this.statusDidChange.emit(this.myObject)
+      }
+      
   }
 
 }
