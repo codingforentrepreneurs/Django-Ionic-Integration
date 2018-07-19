@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { StatusModel } from '../../components/status/status.model'
+
 /**
  * Generated class for the DetailPage page.
  *
@@ -15,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
     statusItem: any;
-    newObject: {title:string, id: number};
+    newObject: StatusModel;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {   
       console.log(navParams)

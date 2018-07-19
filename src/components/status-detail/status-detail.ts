@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+import { StatusModel } from '../status/status.model'
 /**
  * Generated class for the StatusDetailComponent component.
  *
@@ -11,7 +12,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'status-detail.html'
 })
 export class StatusDetailComponent {
-  @Input() myObject: {title:string, id: number};
+  @Input() myObject: StatusModel;
   // text: string;
 
   constructor() {
