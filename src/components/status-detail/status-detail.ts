@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the StatusDetailComponent component.
@@ -11,12 +11,12 @@ import { Component } from '@angular/core';
   templateUrl: 'status-detail.html'
 })
 export class StatusDetailComponent {
-
-  text: string;
+  @Input() myObject: any;
+  // text: string;
 
   constructor() {
     console.log('Hello StatusDetailComponent Component');
-    this.text = 'Status Detail Item';
+    // this.text = 'Status Detail Item';
   }
 
 }
