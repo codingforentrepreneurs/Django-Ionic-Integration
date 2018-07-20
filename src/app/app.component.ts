@@ -39,12 +39,12 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
 
-      this.storage.get('authToken').then((val) => {
-        console.log('Your auth token value is', val);
-        if (!val) {
-          this.rootPage = LoginPage
-        }
-      });
+      // this.storage.get('authToken').then((val) => {
+      //   console.log('Your auth token value is', val);
+      //   if (!val) {
+      //     this.rootPage = LoginPage
+      //   }
+      // });
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
