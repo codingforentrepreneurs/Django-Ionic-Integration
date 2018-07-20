@@ -11,8 +11,10 @@ export class BackendApiProvider {
     console.log('Hello BackendApiProvider Provider');
   }
 
-  login(){
+  login(userData:{}){
       console.log("working...")
+      const endpoint = `${ROOT_ENDPOINT}auth/`
+      return this.http.post(endpoint, userData, {})
   }
   
 }
