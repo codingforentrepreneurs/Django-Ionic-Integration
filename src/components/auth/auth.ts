@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the AuthComponent component.
@@ -11,20 +12,24 @@ import { Component } from '@angular/core';
   templateUrl: 'auth.html'
 })
 export class AuthComponent {
+    private userFormGroup: FormGroup;
 
-  user = {}
-
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
     console.log('Hello AuthComponent Component');
-    this.user = {
-        username: "",
-        password: ""
-    }
+    this.userFormGroup = formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+
+    })
   }
 
-  handleLoginClick(event) {
+  handleSubmit(event) {
       event.preventDefault()
-      console.log(this.user)
+      console.log(this.userFormGroup.value) // to the http server
+      setTimeout(()=>{
+          this.userFormGroup.reset()
+      }, 2000)
+  
   }
 
 

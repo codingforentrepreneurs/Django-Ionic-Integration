@@ -1,19 +1,16 @@
-<div *ngIf='user.username'>
-    <h1>{{ user.username }}</h1>
-</div>
-<form>
+<form [formGroup]="userFormGroup" (ngSubmit)='handleSubmit($event)'>
     <ion-list>
         <ion-item >
             <ion-label floating>Username / Email</ion-label>
-            <ion-input type='text' [(ngModel)]='user.username' name='username'></ion-input>
+            <ion-input type='text' name='username' formControlName='username'></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type='password' [(ngModel)]='user.password'  name='password'></ion-input>
+            <ion-input type='password'  name='password' formControlName='password'></ion-input>
         </ion-item>
     </ion-list>
     <div padding>
-        <button ion-button block (click)='handleLoginClick($event)'>Login</button>
+        <button type='submit' ion-button block [disabled]="!userFormGroup.valid">Login</button>
     </div>
 </form>
