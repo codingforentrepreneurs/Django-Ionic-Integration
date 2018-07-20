@@ -28,19 +28,30 @@ export class AuthComponent {
         password: ['', Validators.required]
 
     })
+    this.createLoadingBar()
+  }
+  createLoadingBar(){
     this.loadingBar = this.loadingCtrl.create({content: "Please wait..."})
   }
-
   handleSubmit(event) {
       event.preventDefault()
       this.loadingBar.present()
       // console.log(this.userFormGroup.value) // to the http server
       this.backend.login(this.userFormGroup.value).subscribe(data=>{
-        console.log("success", data)
+          console.log("success", data)
+          this.loadingBar.dismiss()
+          this.userFormGroup.reset()
+          this.storage.set("authToken", data['token'])
+          this.storage.set("user", data['user'])
+          this.storage.set('expires', data['user'])
+          this.navCtrl.setRoot(HomePage)
       }, error=>{
           console.log("error", error)
+          this.loadingBar.dismiss()
+          this.createLoadingBar()
+          alert(error['error']['detail'])
       })
-      this.loadingBar.dismiss()
+      
 
       // setTimeout(()=>{
       //     this.loadingBar.dismiss()
