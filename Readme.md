@@ -1,4 +1,8 @@
 # Django + Ionic Integration
+
+[![Django + Angular + Ionic Logo](https://cfe2-static.s3-us-west-2.amazonaws.com/media/courses/django-angular-ionic/images/Django_Angular_Ionic.jpg)
+](https://www.codingforentrepreneurs.com/courses/django-angular-ionic/)
+
 Building on top of [Section 2 Angular Integration](https://www.codingforentrepreneurs.com/courses/django-angular-ionic/angular-integration/)([repo](https://github.com/codingforentrepreneurs/Django-Angular-Ionic)), we learn how to integrate a Django project with the Ionic Framework.
 
 - [Course](https://www.codingforentrepreneurs.com/courses/django-angular-ionic/)
