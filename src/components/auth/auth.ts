@@ -3,12 +3,10 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingController, NavController} from 'ionic-angular'
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../../pages/home/home'
-/**
- * Generated class for the AuthComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+
+import { BackendApiProvider } from '../../providers/backend-api/backend-api';
+
+
 @Component({
   selector: 'auth',
   templateUrl: 'auth.html'
@@ -20,7 +18,10 @@ export class AuthComponent {
   constructor(private formBuilder: FormBuilder, 
       public loadingCtrl: LoadingController,
       public navCtrl: NavController,
-      private storage: Storage) {
+      private storage: Storage,
+      private backend: BackendApiProvider,
+
+      ) {
     console.log('Hello AuthComponent Component');
     this.userFormGroup = this.formBuilder.group({
         username: ['', Validators.required],
@@ -34,6 +35,8 @@ export class AuthComponent {
       event.preventDefault()
       this.loadingBar.present()
       console.log(this.userFormGroup.value) // to the http server
+      this.backend.login()
+
       setTimeout(()=>{
           this.loadingBar.dismiss()
           this.userFormGroup.reset()

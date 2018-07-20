@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // might chnage
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
@@ -27,6 +28,7 @@ import { BackendApiProvider } from '../providers/backend-api/backend-api';
   imports: [
     BrowserModule,
     ComponentsModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
   ],
@@ -43,6 +45,7 @@ import { BackendApiProvider } from '../providers/backend-api/backend-api';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpClientModule,
     BackendApiProvider
   ]
 })
