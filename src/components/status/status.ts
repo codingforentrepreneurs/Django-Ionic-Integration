@@ -23,7 +23,7 @@ export class StatusComponent {
   }
 
   grabStatusItems(){
-    const path = '/api/status/'
+    const path = '/api/status/?ordering=-timestamp'
     this.backend.get(path, true).subscribe(data=>{
       this.count = data['count'] as number // data.count
       this.results = data['results'] as any[]
