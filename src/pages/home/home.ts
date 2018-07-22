@@ -9,7 +9,7 @@ import { LoginPage } from '../login/login'
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  newStatusItem: any
   constructor(public navCtrl: NavController, private storage: Storage) {
       storage.get('authToken').then((val) => {
         console.log('Your auth token value is', val);
@@ -18,6 +18,9 @@ export class HomePage {
         }
       });
 
+  }
+  handleStatusDidCreate(newItem){
+    this.newStatusItem = newItem
   }
 
 }
