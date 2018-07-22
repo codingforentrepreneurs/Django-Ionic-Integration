@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HtttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 // observables - async
@@ -38,8 +38,28 @@ export class BackendApiProvider {
       return this.http.get(endpoint, options)
   }
 
+  postWithImage(path, data:{}, imageFile?:File){
+     const endpoint = `${ROOT_ENDPOINT}${path}`
+     const options = {
+         'reportProgress': true,
+         'headers': new HttpHeaders({'Authorization': `JWT ${this.myToken}`})
+     }
+     const myFormData = new FormData()
+     if (data){
+       for (var key in data){
+         myFormData.append(key, data[key])
+       }
+     }
+     if (imageFile){
+       myFormData.append('image', imageFile, imageFile.name)
+     }
+     const req = new HtttpRequest("post", endpoint, myFormData, options)
+     return this.http.request(req)
+  }
+
+
   post(path, data:{}, includeAuth:boolean=true){
-       const endpoint = `${ROOT_ENDPOINT}${path}`
+      const endpoint = `${ROOT_ENDPOINT}${path}`
       const options = this.getHttpOptions(includeAuth)
       return this.http.post(endpoint, data, options)
   }
