@@ -6,20 +6,21 @@ import { Storage } from '@ionic/storage';
 const ROOT_ENDPOINT = 'http://127.0.0.1:8000'
 @Injectable()
 export class BackendApiProvider {
-
+    myToken: string;
   constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello BackendApiProvider Provider');
+    this.storage.get('authToken').then((val)=>{
+        this.myToken = val
+    })
   }
 
   getHttpOptions(includeAuth:boolean=true){
       let myDefaultHeaders = {
           'Content-Type': 'application/json'
       }
-      this.storage.get('authToken').then((val)=>{
-          if (val && includeAuth){
-              myDefaultHeaders['Authorization'] = `JWT ${val}`
-          }
-      })
+      if (this.myToken && includeAuth){
+          myDefaultHeaders['Authorization'] = `JWT ${this.myToken}`
+      }
       const httpOptions = {
           headers: new HttpHeaders(myDefaultHeaders)
       }
