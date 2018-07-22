@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <h3>Status Items</h3>
-  <status-create></status-create>
-  <status></status>
+  <status-create (statusDidCreate)='handleStatusDidCreate($event)'></status-create>
+  <status [newObject]='newStatusItem'></status>
 
 </ion-content>
