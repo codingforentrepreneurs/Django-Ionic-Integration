@@ -4,6 +4,10 @@
             <ion-label floating>Content</ion-label>
             <ion-textarea type='text' name='content' formControlName='content'></ion-textarea>
         </ion-item>
+        <ion-item >
+            <ion-label>Image</ion-label>
+            <ion-input type='file' accept='image/*' name='image' formControlName='image' (change)='handleImageInputChange($event.target.files)'></ion-input>
+        </ion-item>
     </ion-list>
     <div padding>
         <button type='submit' ion-button [disabled]="!statusCreateFormGroup.valid">Send</button>

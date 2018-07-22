@@ -13,6 +13,7 @@ export class StatusCreateComponent {
     private statusCreateFormGroup: FormGroup;
     @Output() statusDidCreate = new EventEmitter<any>()
     loadingBar: any;
+    myImage: any
 
   constructor(private formBuilder: FormBuilder, 
       public loadingCtrl: LoadingController,
@@ -22,13 +23,23 @@ export class StatusCreateComponent {
       ) {
     console.log('Hello AuthComponent Component');
     this.statusCreateFormGroup = this.formBuilder.group({
-        content: ['', Validators.required]
+        content: ['', Validators.required],
+        image: ['', Validators.required]
     })
     this.createLoadingBar()
   }
   createLoadingBar(){
     this.loadingBar = this.loadingCtrl.create({content: "Please wait..."})
   }
+
+  handleImageInputChange(files:FileList){
+    let imageItem = files.item(0)
+    if (imageItem){
+      this.myImage=imageItem
+      console.log(this.myImage)
+    }
+  }
+
   handleSubmit(event) {
       event.preventDefault()
       // this.loadingBar.present()
