@@ -45,8 +45,8 @@ export class StatusCreateComponent {
       // this.loadingBar.present()
       const endpoint = '/api/status/'
       const newData = this.statusCreateFormGroup.value
-      this.statusDidCreate.emit(newData)
-      this.backend.post(endpoint, newData, true).subscribe(data=>{
+      // this.statusDidCreate.emit(newData)
+      this.backend.postWithImage(endpoint, newData, this.myImage).subscribe(data=>{
           console.log("success", data)
           //this.loadingBar.dismiss()
           // this.createLoadingBar()

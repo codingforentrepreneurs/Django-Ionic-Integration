@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HtttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 // observables - async
@@ -53,7 +53,7 @@ export class BackendApiProvider {
      if (imageFile){
        myFormData.append('image', imageFile, imageFile.name)
      }
-     const req = new HtttpRequest("post", endpoint, myFormData, options)
+     const req = new HttpRequest("post", endpoint, myFormData, options)
      return this.http.request(req)
   }
 
