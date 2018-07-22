@@ -4,16 +4,19 @@ import { IonicModule } from 'ionic-angular';
 import { StatusComponent } from './status/status';
 import { StatusDetailComponent } from './status-detail/status-detail';
 import { AuthComponent } from './auth/auth';
+import { StatusCreateComponent } from './status-create/status-create';
 @NgModule({
 	declarations: [StatusComponent,
     StatusDetailComponent,
-    AuthComponent],
+    AuthComponent,
+    StatusCreateComponent],
 	imports: [
         BrowserModule,   
         IonicModule
     ],
 	exports: [StatusComponent,
     StatusDetailComponent,
-    AuthComponent]
+    AuthComponent,
+    StatusCreateComponent]
 })
 export class ComponentsModule {}

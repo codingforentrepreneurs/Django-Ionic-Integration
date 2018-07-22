@@ -1,0 +1,11 @@
+<form [formGroup]="statusCreateFormGroup" (ngSubmit)='handleSubmit($event)'>
+    <ion-list>
+        <ion-item >
+            <ion-label floating>Content</ion-label>
+            <ion-textarea type='text' name='content' formControlName='content'></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button type='submit' ion-button [disabled]="!statusCreateFormGroup.valid">Send</button>
+    </div>
+</form>
